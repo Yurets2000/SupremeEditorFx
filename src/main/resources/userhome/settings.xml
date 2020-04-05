@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SupremeEditor>
+  <Configs>
+	<GUIConfigs>
+	  <GuiConfig name="theme" theme="-1"/>
+	  <GuiConfig name="auto-completion" autoCompletion="false" ignoreNumbers="true"/>
+	  <GuiConfig name="highlighting" enable="false"/>
+	  <GuiConfig name="font" color="white" size="14" family="Arial"/>
+	</GUIConfigs>
+	<ShortcutConfigs>
+		<ShortcutConfig action="newFile" alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="openFile" alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="saveFile" alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="saveFileAs" alt="UP" code="E" control="DOWN" meta="UP" shift="DOWN" shortcut="UP"/>
+		<ShortcutConfig action="changeEncoding" alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="undo" alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="cut" alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="copy" alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="paste" alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="deleteRight" alt="UP" code="Delete" control="UP" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="deleteLeft" alt="UP" code="Backspace" control="UP" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="selectAll" alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="selectLine" alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+		<ShortcutConfig action="selectWord" alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+	</ShortcutConfigs>
+  </Configs>
+</SupremeEditor>

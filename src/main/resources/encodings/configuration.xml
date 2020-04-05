@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SupremeEditor>
+    <Encodings>
+        <Encoding name="UTF-8" type="algorithmic" length="-1"/>
+        <Encoding name="ISO-8859-1" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-1.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-2" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-2.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-3" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-3.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-4" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-4.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-5" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-5.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-6" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-6.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-7" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-7.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-8" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-8.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-9" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-9.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-10" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-10.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-11" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-11.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-13" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-13.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-14" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-14.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-15" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-15.TXT"/>
+        </Encoding>
+        <Encoding name="ISO-8859-16" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/8859-16.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-437" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP437.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-737" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP737.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-775" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP775.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-850" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP850.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-852" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP852.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-855" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP855.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-857" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP857.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-860" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP860.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-861" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP861.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-862" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP862.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-863" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP863.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-864" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP864.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-865" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP865.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-866" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP866.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-869" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP869.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-874" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP874.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-932" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP932.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-936" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP936.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-949" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP949.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-950" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP950.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1250" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1250.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1251" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1251.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1252" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1252.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1253" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1253.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1254" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1254.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1255" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1255.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1256" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1256.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1257" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1257.TXT"/>
+        </Encoding>
+        <Encoding name="Windows-1258" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/CP1258.TXT"/>
+        </Encoding>
+        <Encoding name="KOI8-R" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/KOI8-R.TXT"/>
+        </Encoding>
+        <Encoding name="KOI8-U" type="mapping" length="1">
+            <Mapping type="txt" path="encodings/list/KOI8-U.TXT"/>
+        </Encoding>
+    </Encodings>
+</SupremeEditor>

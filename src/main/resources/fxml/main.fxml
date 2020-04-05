@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.yube.custom.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:id="app" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <MenuBar>
+            <Menu text="File">
+                <SupremeMenuItem fx:id="newFile" action="newFile" text="New File" />
+                <SupremeMenuItem fx:id="openFile" action="openFile" text="Open File" />
+                <SupremeMenuItem fx:id="saveFile" action="saveFile" text="Save File" />
+                <SupremeMenuItem fx:id="saveFileAs" action="saveFileAs" text="Save File As" />
+                <SupremeMenuItem fx:id="changeEncoding" action="changeEncoding" text="Change Encoding" />
+                <SeparatorMenuItem />
+                <SupremeMenuItem fx:id="exit" action="exit" text="Exit" />
+            </Menu>
+            <Menu text="Edit">
+                <SupremeMenuItem fx:id="undo" action="undo" text="Undo" />
+                <SeparatorMenuItem />
+                <SupremeMenuItem fx:id="cut" action="cut" text="Cut" />
+                <SupremeMenuItem fx:id="copy" action="copy" text="Copy" />
+                <SupremeMenuItem fx:id="paste" action="paste" text="Paste" />
+                <SupremeMenuItem fx:id="deleteRight" action="deleteRight" text="Delete Right" />
+                <SupremeMenuItem fx:id="deleteLeft" action="deleteLeft" text="Delete Left" />
+                <SupremeMenuItem fx:id="selectAll" action="selectAll" text="Select All" />
+                <SupremeMenuItem fx:id="selectLine" action="selectLine" text="Select All" />
+                <SupremeMenuItem fx:id="selectWord" action="selectWord" text="Select Word" />
+            </Menu>
+            <Menu text="Help">
+                <SupremeMenuItem fx:id="keymapReference" action="keymapReference" text="Keymap Reference" />
+                <SupremeMenuItem fx:id="about" action="about" text="About" />
+            </Menu>
+        </MenuBar>
+        <TabPane fx:id="supremeTabPane" />
+    </children>
+</VBox>

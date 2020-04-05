@@ -1,0 +1,34 @@
+root, #mainTabPane, .supreme-area {
+    -fx-background-color: #2d2d2d;
+}
+
+.supreme-area .line-highlighter {
+    -fx-fill: rgba(255, 213, 0, 0.4);
+    -fx-fit-to-width: true;
+    -fx-fill-width: 1000px;
+}
+
+.menu-bar, .menu, .menu-item, .tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #464646;
+}
+
+.menu:hover, .menu-item:hover {
+    -fx-background-color: #107cd7;
+}
+
+.menu-bar, .tab-header-area .tab-header-background {
+    -fx-border-color: #696969;
+}
+
+.tab-close-button {
+    -fx-background-color: white;
+}
+
+.tab, .context-menu {
+    -fx-background-color: #696969;
+}
+
+.text {
+    -fx-fill: white;
+}
+

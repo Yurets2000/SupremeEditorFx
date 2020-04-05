@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SupremeEditor> 
+  <Sessions active="session #1"> 
+    <Session name="session #1" active="4d467046-c268-4ad7-bac1-cd46093fb9e6" creationTime="1583789110582">
+      <Files>
+        <File id="4d467046-c268-4ad7-bac1-cd46093fb9e6" sessionName="session #1" lang="java" name="code.asm" filePath="D:/Desktop/code.asm" backupFilePath="" encoding="UTF-8" displayIndex="1"/>
+      </Files>
+    </Session>
+  </Sessions> 
+</SupremeEditor>

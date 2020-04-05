@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SupremeEditor>
+    <Actions>
+        <Action name="newFile" desc="New File">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="openFile" desc="Open File">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="saveFile" desc="Save File">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="saveFileAs" desc="Save File As">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="changeEncoding" desc="Change Encoding">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="copy" desc="Copy">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="paste" desc="Paste">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="cut" desc="Cut">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="deleteRight" desc="Delete Right">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="deleteLeft" desc="Delete Left">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="selectAll" desc="Select All">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="selectLine" desc="Select Line">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="selectWord" desc="Select Word">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="undo" desc="Undo">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="StyleClassedTextArea">
+                    <Qualifiers/>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="exit" desc="Exit">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="keymapReference" desc="Keymap Reference">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+        <Action name="about" desc="About">
+            <Definers>
+                <Definer value="main"/>
+            </Definers>
+            <Implementors>
+                <Implementor type="Stage">
+                    <Qualifiers>
+                        <Qualifier value="main"/>
+                    </Qualifiers>
+                    <Exceptions/>
+                </Implementor>
+            </Implementors>
+        </Action>
+    </Actions>
+</SupremeEditor>

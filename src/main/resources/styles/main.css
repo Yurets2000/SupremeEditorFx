@@ -1,0 +1,15 @@
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-insets: 2, 2, 2;
+    -fx-padding: 3;
+    -fx-background-radius: 5;
+}
+
+.menu-bar, .tab-header-area .tab-header-background {
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-width: 1px;
+}
+
+.supreme-area{
+    -fx-min-height: 1000;
+}
