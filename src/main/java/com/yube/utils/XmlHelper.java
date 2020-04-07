@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-public class XmlHelper {
+public final class XmlHelper {
 
     private static final SAXReader saxReader = new SAXReader();
 

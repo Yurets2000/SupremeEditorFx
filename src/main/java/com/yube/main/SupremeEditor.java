@@ -9,10 +9,7 @@ import com.yube.configuration.processors.sessions.SessionProcessor;
 import com.yube.custom.SupremeMenuItem;
 import com.yube.custom.SupremeTab;
 import com.yube.events.CustomActionEvent;
-import com.yube.services.EventService;
-import com.yube.services.SupremeMenuItemService;
-import com.yube.services.SupremeSceneService;
-import com.yube.services.SupremeTabService;
+import com.yube.services.*;
 import com.yube.utils.ImageHelper;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
@@ -57,6 +54,8 @@ public class SupremeEditor extends Application {
     private SessionFileProcessor sessionFileProcessor;
     @Autowired
     private EventService eventService;
+    @Autowired
+    private FileService fileService;
 
     private ConfigurableApplicationContext springContext;
     private Parent root;

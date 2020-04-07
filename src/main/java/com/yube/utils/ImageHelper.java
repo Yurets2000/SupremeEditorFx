@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 
-public class ImageHelper {
+public final class ImageHelper {
 
     public static Image cropCentralPart(Image image, double widthPercent, double heightPercent) {
         if (widthPercent < 0 || widthPercent > 1 || heightPercent < 0 || heightPercent > 1)

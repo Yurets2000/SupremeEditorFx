@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesHelper {
+public final class PropertiesHelper {
 
     private static final String PROPERTIES_PREFIX = "properties";
 

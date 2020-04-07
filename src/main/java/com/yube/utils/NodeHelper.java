@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 
 import java.util.ArrayList;
 
-public class NodeHelper {
+public final class NodeHelper {
 
     public static ArrayList<Node> getAllNodesWithType(Parent root, String className) throws ClassNotFoundException {
         ArrayList<Node> nodes = new ArrayList<>();

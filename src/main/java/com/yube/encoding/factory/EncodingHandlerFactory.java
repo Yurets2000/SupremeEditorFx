@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EncodingHandlerFactory {
+public final class EncodingHandlerFactory {
 
     private EncodingsProcessor encodingsProcessor;
     private MappingProcessor mappingProcessor;

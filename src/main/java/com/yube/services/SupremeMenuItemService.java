@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class SupremeMenuItemService {
+public final class SupremeMenuItemService {
 
     private ActionsProcessor actionsProcessor;
     private EventService eventService;
