@@ -1,0 +1,23 @@
+.java-keyword {
+    -fx-fill: orange;
+    -fx-font-weight: bold;
+}
+.java-semicolon {
+    -fx-font-weight: bold;
+}
+.java-paren {
+    -fx-font-weight: bold;
+}
+.java-bracket {
+    -fx-font-weight: bold;
+}
+.java-brace {
+    -fx-font-weight: bold;
+}
+.java-string {
+    -fx-fill: green;
+}
+
+.java-comment {
+    -fx-fill: grey;
+}

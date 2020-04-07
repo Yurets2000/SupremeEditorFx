@@ -4,11 +4,11 @@ import lombok.Data;
 import lombok.NonNull;
 import lombok.ToString;
 
-import java.util.HashMap;
+import java.util.Map;
 
 @Data @ToString
 public final class GuiConfig {
     private final String name;
     @NonNull
-    private HashMap<String, String> additionalAttributes;
+    private Map<String, String> additionalAttributes;
 }

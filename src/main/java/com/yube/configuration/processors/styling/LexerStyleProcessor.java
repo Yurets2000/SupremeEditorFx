@@ -6,9 +6,9 @@ import com.yube.configuration.transformers.styling.LexerStyleTransformer;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
-public class LexerStyleManager extends AbstractProcessor {
+public class LexerStyleProcessor extends AbstractProcessor {
 
-    public LexerStyleManager(Document document) {
+    public LexerStyleProcessor(Document document) {
         super(document);
     }
 

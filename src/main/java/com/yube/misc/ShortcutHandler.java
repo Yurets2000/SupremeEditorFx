@@ -1,4 +1,4 @@
-package com.yube.controls;
+package com.yube.misc;
 
 import com.yube.configuration.models.settings.ShortcutConfig;
 import com.yube.configuration.processors.settings.ShortcutConfigProcessor;

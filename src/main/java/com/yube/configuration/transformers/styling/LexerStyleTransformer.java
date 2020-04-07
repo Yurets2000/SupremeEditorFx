@@ -18,10 +18,9 @@ public final class LexerStyleTransformer {
                     element.attributeValue("name"),
                     element.attributeValue("desc"),
                     element.attributeValue("elements"),
-                    element.attributeValue("pattern"),
-                    element.attributeValue("path"));
+                    element.attributeValue("pattern"));
         } catch (Exception ex) {
-            throw new TransformationException("Can't transform passed Element to GuiConfig object", ex);
+            throw new TransformationException("Can't transform passed Element to LexerStyle object", ex);
         }
     }
 
@@ -32,7 +31,6 @@ public final class LexerStyleTransformer {
             element.addAttribute("desc", lexerStyle.getDesc());
             element.addAttribute("elements", lexerStyle.getElements());
             element.addAttribute("pattern", lexerStyle.getPattern());
-            element.addAttribute("path", lexerStyle.getPath());
             return element;
         } catch (Exception ex) {
             throw new TransformationException("Can't transform passed LexerStyle to Element object", ex);

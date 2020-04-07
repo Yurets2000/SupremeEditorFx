@@ -10,6 +10,7 @@ import com.yube.configuration.processors.sessions.SessionFileProcessor;
 import com.yube.configuration.processors.sessions.SessionProcessor;
 import com.yube.configuration.processors.settings.GuiConfigProcessor;
 import com.yube.configuration.processors.settings.ShortcutConfigProcessor;
+import com.yube.configuration.processors.styling.LexerStyleProcessor;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 
@@ -56,5 +57,11 @@ public class ProcessorsConfiguration {
     public MappingProcessor getStandardMappingProcessor() throws ConfigurationInitializationException {
         XmlConfiguration encodingsConfiguration = XmlConfigurationFactory.getConfiguration("encodings");
         return new MappingProcessor(encodingsConfiguration.getDocument());
+    }
+
+    @Bean(name = "standardLexerStyleProcessor")
+    public LexerStyleProcessor getStandardLexerStyleProcessor() throws ConfigurationInitializationException {
+        XmlConfiguration stylingConfiguration = XmlConfigurationFactory.getConfiguration("styling");
+        return new LexerStyleProcessor(stylingConfiguration.getDocument());
     }
 }

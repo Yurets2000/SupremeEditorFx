@@ -1,7 +1,6 @@
 package com.yube.configuration.processors.actions;
 
 import com.yube.configuration.models.actions.Action;
-import com.yube.configuration.models.actions.Implementor;
 import com.yube.configuration.processors.AbstractProcessor;
 import com.yube.configuration.transformers.actions.ActionTransformer;
 import org.dom4j.Attribute;
@@ -10,7 +9,6 @@ import org.dom4j.Element;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ActionsProcessor extends AbstractProcessor {
@@ -47,11 +45,6 @@ public class ActionsProcessor extends AbstractProcessor {
     }
 
     public boolean isImplementor(Action action, String type, String qualifier) {
-        Optional<Implementor> optionalImplementor = action.getImplementors().stream().filter(impl -> impl.getType().equals(type)).findAny();
-        if (optionalImplementor.isPresent()) {
-            Implementor implementor = optionalImplementor.get();
-            implementor.isRelatedTo(type, qualifier);
-        }
-        return false;
+        return action.getImplementors().stream().anyMatch(impl -> impl.isRelatedTo(type, qualifier));
     }
 }

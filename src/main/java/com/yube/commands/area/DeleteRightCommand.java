@@ -8,6 +8,6 @@ import org.fxmisc.richtext.StyleClassedTextArea;
 public class DeleteRightCommand extends DeleteCommand {
 
     public DeleteRightCommand(StyleClassedTextArea area, StageContainer container) {
-        super(area, container, true);
+        super(area, container, false);
     }
 }

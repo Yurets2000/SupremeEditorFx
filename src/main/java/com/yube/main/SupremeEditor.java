@@ -81,18 +81,19 @@ public class SupremeEditor extends Application {
         stage.getIcons().add(ImageHelper.cropCentralPart(image, 0.75, 0.75));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/main.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/darkula.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/themes/darkula.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/highlightings/java.css").toExternalForm());
         stage.setScene(scene);
 
         List<Action> definedActions = actionsProcessor.getDefinedActions("main");
         Map<String, BooleanProperty> actionsMap = stageContainer.getActionsMap();
         definedActions.forEach(a -> actionsMap.put(a.getName(), new SimpleBooleanProperty(false)));
-        List<Action> implementedActions = actionsProcessor.getImplementedActions("Stage", "main");
+        List<Action> implementedActions = actionsProcessor.getImplementedActions(Stage.class.getName(), "main");
         implementedActions.forEach(a -> actionsMap.put(a.getName(), new SimpleBooleanProperty(true)));
         List<SupremeMenuItem> supremeMenuItems = supremeSceneService.getMenuItems(stageContainer.getStage().getScene());
         supremeMenuItemService.initMenuItems(supremeMenuItems, stageContainer);
         stage.addEventFilter(CustomActionEvent.ANY, event -> {
-            if(event.getImplementingTarget().isRelatedTo("Stage", "main")){
+            if(event.getImplementingTarget().isRelatedTo(Stage.class.getName(), "main")){
                 /*Action processing will be added later*/
             }
         });

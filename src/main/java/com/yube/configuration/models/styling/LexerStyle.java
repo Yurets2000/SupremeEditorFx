@@ -13,6 +13,4 @@ public final class LexerStyle {
     private String elements;
     @NonNull
     private String pattern;
-    @NonNull
-    private String path;
 }

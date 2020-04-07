@@ -13,14 +13,14 @@ public class GuiConfigProcessor extends AbstractProcessor {
     }
 
     public GuiConfig getGuiConfig(String name) {
-        Element guiConfigElement = (Element) document.selectSingleNode("//GUIConfig[@name='" + name + "']");
+        Element guiConfigElement = (Element) document.selectSingleNode("//GuiConfig[@name='" + name + "']");
         if (guiConfigElement == null) throw new IllegalArgumentException("Can't get such GUIConfig");
         return GuiConfigTransformer.createGuiConfig(guiConfigElement);
 
     }
 
     public void updateGuiConfig(GuiConfig guiConfig) {
-        Element guiConfigElement = (Element) document.selectSingleNode("//GUIConfig[@name='" + guiConfig.getName() + "']");
+        Element guiConfigElement = (Element) document.selectSingleNode("//GuiConfig[@name='" + guiConfig.getName() + "']");
         if (guiConfigElement == null) throw new IllegalArgumentException("Can't get such GUIConfig");
         guiConfig.getAdditionalAttributes().forEach(guiConfigElement::addAttribute);
     }

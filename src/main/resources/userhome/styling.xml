@@ -3,6 +3,6 @@
 <SupremeEditor>
   <LexerStyles>
     <LexerStyle name="java" desc="Java" elements="KEYWORD,PAREN,BRACE,BRACKET,SEMICOLON,STRING,COMMENT" pattern="(?&lt;KEYWORD&gt;\b(abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|native|new|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|void|volatile|while)\b)|(?&lt;PAREN&gt;\(|\))|(?&lt;BRACE&gt;\{|\})|(?&lt;BRACKET&gt;\[|\])|(?&lt;SEMICOLON&gt;\;)|(?&lt;STRING&gt;&quot;([^&quot;\\]|\\.)*&quot;)|(?&lt;COMMENT&gt;//[^
-]*|/\*(.|\R)*?\*/)" path="C:/Users/Yurets/AppData/Roaming/SupremeEditor/styles/java.css"/>
+]*|/\*(.|\R)*?\*/)"/>
   </LexerStyles>
 </SupremeEditor>
