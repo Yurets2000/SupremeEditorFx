@@ -1,7 +1,7 @@
 package com.yube.commands.area;
 
 import com.yube.commands.AbstractCommand;
-import com.yube.logic.StageContainer;
+import com.yube.main.StageContainer;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
 public abstract class AreaCommand extends AbstractCommand<Void> {

@@ -1,12 +1,14 @@
 package com.yube.commands.area;
 
+import com.yube.annotations.ActionHandler;
 import com.yube.commands.Recallable;
-import com.yube.logic.StageContainer;
+import com.yube.main.StageContainer;
 import javafx.scene.control.IndexRange;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
+@ActionHandler(action = "cut")
 public class CutCommand extends AreaCommand implements Recallable {
 
     private int start;

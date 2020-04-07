@@ -1,11 +1,11 @@
 package com.yube.commands.area;
 
 import com.yube.commands.Recallable;
-import com.yube.logic.StageContainer;
+import com.yube.main.StageContainer;
 import javafx.scene.control.IndexRange;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
-public class DeleteCommand extends AreaCommand implements Recallable {
+public abstract class DeleteCommand extends AreaCommand implements Recallable {
 
     private boolean rtl;
     private int start;

@@ -1,7 +1,7 @@
 package com.yube.services;
 
 import com.yube.custom.SupremeArea;
-import com.yube.logic.StageContainer;
+import com.yube.main.StageContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,8 @@ public final class SupremeAreaService {
     public SupremeArea createArea(String content, StageContainer container) {
         SupremeArea area = new SupremeArea();
         area.appendText(content);
-        styleClassedTextAreaService.addEventFilters(area, container);
+        styleClassedTextAreaService.addKeyEventFilter(area, container);
+        styleClassedTextAreaService.addCustomActionEventFilter(area, container);
         styleClassedTextAreaService.bindActionsToTextArea(area, container);
         return area;
     }

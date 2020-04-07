@@ -2,13 +2,14 @@ package com.yube.controls;
 
 import com.yube.configuration.models.settings.ShortcutConfig;
 import com.yube.configuration.processors.settings.ShortcutConfigProcessor;
-import com.yube.controls.exceptions.ControlHandlingException;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class ShortcutHandler {
 
     private static class ShortcutConfigMapper {
@@ -21,7 +22,7 @@ public class ShortcutHandler {
             String meta = shortcutConfig.getMeta();
             String shift = shortcutConfig.getShift();
             String shortcut = shortcutConfig.getShortcut();
-            if(keyCode == null || alt == null || control == null || meta == null || shift == null || shortcut == null)
+            if (keyCode == null || alt == null || control == null || meta == null || shift == null || shortcut == null)
                 throw new IllegalArgumentException();
 
             if (alt.equals("DOWN")) {
@@ -39,7 +40,7 @@ public class ShortcutHandler {
             if (shortcut.equals("DOWN")) {
                 modifiers.add(KeyCodeCombination.SHORTCUT_DOWN);
             }
-            KeyCodeCombination.Modifier[] modifierArr =  modifiers.toArray(new KeyCodeCombination.Modifier[modifiers.size()]);
+            KeyCodeCombination.Modifier[] modifierArr = modifiers.toArray(new KeyCodeCombination.Modifier[modifiers.size()]);
             return new KeyCodeCombination(keyCode, modifierArr);
         }
     }
@@ -51,12 +52,8 @@ public class ShortcutHandler {
     }
 
     public KeyCodeCombination getKeyCodeCombination(String action) {
-        try {
-            ShortcutConfig shortcut = shortcutConfigProcessor.getShortcutConfig(action);
-            return shortcut == null ? null : ShortcutConfigMapper.map(shortcut);
-        } catch (Exception e){
-            throw new ControlHandlingException("ImplementorException due getting key code combination for action", e);
-        }
+        ShortcutConfig shortcut = shortcutConfigProcessor.getShortcutConfig(action);
+        return shortcut == null ? null : ShortcutConfigMapper.map(shortcut);
     }
 
 }

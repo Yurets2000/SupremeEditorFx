@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.ToString;
 
 @Data @ToString
-public class Encoding {
+public final class Encoding {
     private final String name;
     @NonNull
     private String type;

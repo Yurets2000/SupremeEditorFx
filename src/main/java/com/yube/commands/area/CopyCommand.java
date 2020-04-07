@@ -1,10 +1,12 @@
 package com.yube.commands.area;
 
-import com.yube.logic.StageContainer;
+import com.yube.annotations.ActionHandler;
+import com.yube.main.StageContainer;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
+@ActionHandler(action = "copy")
 public class CopyCommand extends AreaCommand {
 
     public CopyCommand(StyleClassedTextArea area, StageContainer container) {

@@ -4,6 +4,6 @@ import lombok.Data;
 import lombok.ToString;
 
 @Data @ToString
-public class Definer {
+public final class Definer {
     private final String value;
 }

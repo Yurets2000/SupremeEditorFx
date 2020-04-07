@@ -1,8 +1,13 @@
 package com.yube.services;
 
+import com.yube.configuration.models.actions.Action;
+import com.yube.configuration.processors.actions.ActionsProcessor;
 import com.yube.custom.SupremeMenuItem;
+import com.yube.events.CustomActionEvent;
+import com.yube.main.StageContainer;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,12 +16,37 @@ import java.util.Map;
 @Service
 public class SupremeMenuItemService {
 
-    public void bindMenuItemsToActions(List<SupremeMenuItem> items, Map<String, BooleanProperty> actionsMap){
-        for (SupremeMenuItem item : items){
+    private ActionsProcessor actionsProcessor;
+    private EventService eventService;
+
+    @Autowired
+    public SupremeMenuItemService(ActionsProcessor actionsProcessor, EventService eventService) {
+        this.actionsProcessor = actionsProcessor;
+        this.eventService = eventService;
+    }
+
+    public void initMenuItems(List<SupremeMenuItem> items, StageContainer stageContainer) {
+        bindMenuItemsToActions(items, stageContainer.getActionsMap());
+        bindActionsToMenuItems(items, stageContainer);
+    }
+
+    private void bindMenuItemsToActions(List<SupremeMenuItem> items, Map<String, BooleanProperty> actionsMap) {
+        for (SupremeMenuItem item : items) {
             String action = item.getAction();
-            if(action != null) {
+            if (action != null) {
                 item.disableProperty().bind(Bindings.not(actionsMap.get(item.getAction())));
             }
         }
+    }
+
+    private void bindActionsToMenuItems(List<SupremeMenuItem> items, StageContainer stageContainer) {
+        items.forEach(i -> {
+            i.setOnAction(event -> {
+                Action action = actionsProcessor.getAction(i.getAction());
+                action.getImplementors().forEach(implementor -> {
+                    eventService.propagateToTargets(stageContainer, new CustomActionEvent(action, implementor));
+                });
+            });
+        });
     }
 }

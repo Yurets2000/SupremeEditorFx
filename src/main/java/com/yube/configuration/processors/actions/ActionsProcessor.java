@@ -49,11 +49,8 @@ public class ActionsProcessor extends AbstractProcessor {
     public boolean isImplementor(Action action, String type, String qualifier) {
         Optional<Implementor> optionalImplementor = action.getImplementors().stream().filter(impl -> impl.getType().equals(type)).findAny();
         if (optionalImplementor.isPresent()) {
-            if (qualifier == null) return true;
             Implementor implementor = optionalImplementor.get();
-            List<String> qualifiers = implementor.getQualifiers();
-            List<String> exceptions = implementor.getExceptions();
-            return qualifiers.contains(qualifier) && !exceptions.contains(qualifier);
+            implementor.isRelatedTo(type, qualifier);
         }
         return false;
     }

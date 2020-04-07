@@ -1,4 +1,4 @@
-package com.yube.logic;
+package com.yube.main;
 
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

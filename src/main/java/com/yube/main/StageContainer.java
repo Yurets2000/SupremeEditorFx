@@ -1,4 +1,4 @@
-package com.yube.logic;
+package com.yube.main;
 
 import com.yube.commands.Command;
 import com.yube.commands.Recallable;
@@ -11,14 +11,16 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StageContainer {
+public final class StageContainer {
 
     @Getter
     private Stage stage;
     @Getter
     private final String qualifier;
     @Getter
-    private Deque<Recallable> commandHistory = new ArrayDeque<>();
+    private Deque<Command> commandHistory = new ArrayDeque<>();
+    @Getter
+    private Deque<Recallable> recallables = new ArrayDeque<>();
     @Getter
     private Map<String, BooleanProperty> actionsMap = new HashMap<>();
 
@@ -29,14 +31,15 @@ public class StageContainer {
 
     public void executeCommand(Command command) {
         command.execute();
-        if (command instanceof Recallable) {
-            commandHistory.push((Recallable)command);
+        commandHistory.push(command);
+        if(command instanceof Recallable){
+            recallables.push((Recallable) command);
         }
     }
 
     public void undoCommand() {
-        if(commandHistory.size() > 0) {
-            Recallable command = commandHistory.pop();
+        if(recallables.size() > 0) {
+            Recallable command = recallables.pop();
             command.undo();
         }
     }

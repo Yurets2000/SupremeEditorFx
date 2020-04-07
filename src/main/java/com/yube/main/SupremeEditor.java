@@ -1,7 +1,5 @@
-package com.yube.logic;
+package com.yube.main;
 
-import com.yube.configuration.factory.XmlConfigurationFactory;
-import com.yube.configuration.hierarchy.XmlConfiguration;
 import com.yube.configuration.models.actions.Action;
 import com.yube.configuration.models.sessions.Session;
 import com.yube.configuration.models.sessions.SessionFile;
@@ -10,6 +8,8 @@ import com.yube.configuration.processors.sessions.SessionFileProcessor;
 import com.yube.configuration.processors.sessions.SessionProcessor;
 import com.yube.custom.SupremeMenuItem;
 import com.yube.custom.SupremeTab;
+import com.yube.events.CustomActionEvent;
+import com.yube.services.EventService;
 import com.yube.services.SupremeMenuItemService;
 import com.yube.services.SupremeSceneService;
 import com.yube.services.SupremeTabService;
@@ -40,7 +40,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
-@ComponentScan("com.yube.services")
+@ComponentScan("com.yube")
 public class SupremeEditor extends Application {
 
     @Autowired
@@ -49,6 +49,14 @@ public class SupremeEditor extends Application {
     private SupremeSceneService supremeSceneService;
     @Autowired
     private SupremeMenuItemService supremeMenuItemService;
+    @Autowired
+    private ActionsProcessor actionsProcessor;
+    @Autowired
+    private SessionProcessor sessionProcessor;
+    @Autowired
+    private SessionFileProcessor sessionFileProcessor;
+    @Autowired
+    private EventService eventService;
 
     private ConfigurableApplicationContext springContext;
     private Parent root;
@@ -76,21 +84,20 @@ public class SupremeEditor extends Application {
         scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/darkula.css").toExternalForm());
         stage.setScene(scene);
 
-        XmlConfiguration actionsConfiguration = XmlConfigurationFactory.getConfiguration("actions");
-        ActionsProcessor actionsProcessor = new ActionsProcessor(actionsConfiguration.getDocument());
         List<Action> definedActions = actionsProcessor.getDefinedActions("main");
         Map<String, BooleanProperty> actionsMap = stageContainer.getActionsMap();
         definedActions.forEach(a -> actionsMap.put(a.getName(), new SimpleBooleanProperty(false)));
         List<Action> implementedActions = actionsProcessor.getImplementedActions("Stage", "main");
         implementedActions.forEach(a -> actionsMap.put(a.getName(), new SimpleBooleanProperty(true)));
-        List<SupremeMenuItem> supremeMenuItems = supremeSceneService.getSupremeMenuItems(stageContainer.getStage().getScene());
-        supremeMenuItemService.bindMenuItemsToActions(supremeMenuItems, stageContainer.getActionsMap());
+        List<SupremeMenuItem> supremeMenuItems = supremeSceneService.getMenuItems(stageContainer.getStage().getScene());
+        supremeMenuItemService.initMenuItems(supremeMenuItems, stageContainer);
+        stage.addEventFilter(CustomActionEvent.ANY, event -> {
+            if(event.getImplementingTarget().isRelatedTo("Stage", "main")){
+                /*Action processing will be added later*/
+            }
+        });
 
-        XmlConfiguration sessionsConfiguration = XmlConfigurationFactory.getConfiguration("sessions");
-        SessionProcessor sessionProcessor = new SessionProcessor(sessionsConfiguration.getDocument());
-        SessionFileProcessor sessionFileProcessor = new SessionFileProcessor(sessionsConfiguration.getDocument());
         Session session = sessionProcessor.getActiveSession();
-
         List<SessionFile> sessionFiles = sessionFileProcessor.getSessionFiles(session.getName());
         TabPane tabPane = (TabPane) scene.lookup("#supremeTabPane");
         List<SupremeTab> supremeTabs = sessionFiles.stream()
@@ -102,6 +109,7 @@ public class SupremeEditor extends Application {
 
     @Override
     public void stop() throws Exception {
+        springContext.stop();
         super.stop();
     }
 

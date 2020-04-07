@@ -1,6 +1,6 @@
 package com.yube.commands;
 
-import com.yube.logic.StageContainer;
+import com.yube.main.StageContainer;
 
 public abstract class AbstractCommand<R> implements Command<R> {
 

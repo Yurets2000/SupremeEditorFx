@@ -1,14 +1,11 @@
 package com.yube.custom;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.richtext.model.EditableStyledDocument;
 
 import java.util.Collection;
 
-@Getter @Setter
 public class SupremeArea extends StyleClassedTextArea {
 
     public SupremeArea() {
@@ -21,33 +18,41 @@ public class SupremeArea extends StyleClassedTextArea {
         initArea();
     }
 
-    private void initArea(){
+    private void initArea() {
         getStyleClass().add("supreme-area");
         setParagraphGraphicFactory(LineNumberFactory.get(this));
         setUseInitialStyleForInsertion(true);
     }
 
     @Override
-    public void cut() {}
+    public void cut() {
+    }
 
     @Override
-    public void copy() {}
+    public void copy() {
+    }
 
     @Override
-    public void paste() {}
+    public void paste() {
+    }
 
     @Override
-    public void deletePreviousChar() {}
+    public void deletePreviousChar() {
+    }
 
     @Override
-    public void deleteNextChar() {}
+    public void deleteNextChar() {
+    }
 
     @Override
-    public void clear() {}
+    public void clear() {
+    }
 
     @Override
-    public void redo() {}
+    public void redo() {
+    }
 
     @Override
-    public void undo() {}
+    public void undo() {
+    }
 }

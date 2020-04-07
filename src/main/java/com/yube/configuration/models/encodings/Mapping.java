@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.ToString;
 
 @Data @ToString
-public class Mapping {
+public final class Mapping {
     @NonNull
     private String type;
     @NonNull

@@ -19,7 +19,7 @@ public final class SupremeSceneService {
         this.sceneService = sceneService;
     }
 
-    public List<SupremeMenuItem> getSupremeMenuItems(Scene scene){
+    public List<SupremeMenuItem> getMenuItems(Scene scene){
         try {
             List<Menu> menus = sceneService.getMenus(scene);
             return menus.stream().flatMap((m) -> m.getItems().stream())

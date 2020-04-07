@@ -7,7 +7,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -20,7 +20,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -33,7 +33,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -46,7 +46,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -59,7 +59,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -72,7 +72,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -83,7 +83,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -94,7 +94,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -105,7 +105,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -116,7 +116,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -127,7 +127,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -138,7 +138,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -149,7 +149,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -160,7 +160,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="StyleClassedTextArea">
+                <Implementor type="org.fxmisc.richtext.StyleClassedTextArea">
                     <Qualifiers/>
                     <Exceptions/>
                 </Implementor>
@@ -171,7 +171,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -184,7 +184,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>
@@ -197,7 +197,7 @@
                 <Definer value="main"/>
             </Definers>
             <Implementors>
-                <Implementor type="Stage">
+                <Implementor type="javafx.stage.Stage">
                     <Qualifiers>
                         <Qualifier value="main"/>
                     </Qualifiers>

@@ -1,8 +1,10 @@
 package com.yube.commands.area;
 
-import com.yube.logic.StageContainer;
+import com.yube.annotations.ActionHandler;
+import com.yube.main.StageContainer;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
+@ActionHandler(action = "selectWord")
 public class SelectWordCommand extends AreaCommand {
 
     public SelectWordCommand(StyleClassedTextArea area, StageContainer container) {

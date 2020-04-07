@@ -3,7 +3,7 @@ package com.yube.services;
 import com.yube.configuration.models.sessions.SessionFile;
 import com.yube.custom.SupremeArea;
 import com.yube.custom.SupremeTab;
-import com.yube.logic.StageContainer;
+import com.yube.main.StageContainer;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
