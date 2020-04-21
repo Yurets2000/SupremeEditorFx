@@ -24,7 +24,7 @@
                 <SupremeMenuItem fx:id="deleteRight" action="deleteRight" text="Delete Right" />
                 <SupremeMenuItem fx:id="deleteLeft" action="deleteLeft" text="Delete Left" />
                 <SupremeMenuItem fx:id="selectAll" action="selectAll" text="Select All" />
-                <SupremeMenuItem fx:id="selectLine" action="selectLine" text="Select All" />
+                <SupremeMenuItem fx:id="selectLine" action="selectLine" text="Select Line" />
                 <SupremeMenuItem fx:id="selectWord" action="selectWord" text="Select Word" />
             </Menu>
             <Menu text="Help">

@@ -10,6 +10,20 @@
     -fx-border-width: 1px;
 }
 
-.supreme-area{
+.supreme-area {
     -fx-min-height: 1000;
+}
+
+.autocomplete-item {
+    -fx-pref-height: 15;
+    -fx-min-width: 100;
+}
+
+.autocomplete-item:hover {
+    -fx-background-color: gray;
+}
+
+.autocomplete-body {
+    -fx-max-height: 150;
+    -fx-hbar-policy: never;
 }

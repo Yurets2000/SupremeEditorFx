@@ -7,7 +7,7 @@ import com.yube.configuration.processors.actions.ActionsProcessor;
 import com.yube.events.CustomActionEvent;
 import com.yube.main.StageContainer;
 import com.yube.misc.ShortcutHandler;
-import javafx.beans.property.BooleanProperty;
+import com.yube.observables.ObservableProperty;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.StyleClassedTextArea;
@@ -35,11 +35,15 @@ public final class StyleClassedTextAreaService {
     }
 
     public void bindActionsToTextArea(StyleClassedTextArea styleClassedTextArea, StageContainer container){
-        Map<String, BooleanProperty> actionsMap = container.getActionsMap();
+        Map<String, ObservableProperty<Boolean>> actionsMap = container.getActionsMap();
         List<String> textAreaActions = Arrays.asList("copy", "cut", "deleteLeft",
                                              "deleteRight", "paste", "selectWord",
                                              "selectLine", "selectAll", "undo");
-        textAreaActions.forEach(action -> actionsMap.get(action).bind(styleClassedTextArea.focusedProperty()));
+        textAreaActions.forEach(action -> styleClassedTextArea
+                .focusedProperty().addListener((observable, oldValue, newValue) -> {
+            actionsMap.get(action).setProperty(newValue);
+        }));
+        //textAreaActions.forEach(action -> actionsMap.get(action).bind(styleClassedTextArea.focusedProperty()));
     }
 
     public void addKeyEventFilter(StyleClassedTextArea area, StageContainer container){

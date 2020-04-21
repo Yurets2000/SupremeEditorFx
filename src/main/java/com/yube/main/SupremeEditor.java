@@ -9,12 +9,11 @@ import com.yube.configuration.processors.sessions.SessionProcessor;
 import com.yube.custom.SupremeMenuItem;
 import com.yube.custom.SupremeTab;
 import com.yube.events.CustomActionEvent;
+import com.yube.observables.ObservableProperty;
 import com.yube.services.*;
 import com.yube.utils.ImageHelper;
 import javafx.application.Application;
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -85,10 +84,10 @@ public class SupremeEditor extends Application {
         stage.setScene(scene);
 
         List<Action> definedActions = actionsProcessor.getDefinedActions("main");
-        Map<String, BooleanProperty> actionsMap = stageContainer.getActionsMap();
-        definedActions.forEach(a -> actionsMap.put(a.getName(), new SimpleBooleanProperty(false)));
+        Map<String, ObservableProperty<Boolean>> actionsMap = stageContainer.getActionsMap();
+        definedActions.forEach(a -> actionsMap.put(a.getName(), new ObservableProperty<>(false)));
         List<Action> implementedActions = actionsProcessor.getImplementedActions(Stage.class.getName(), "main");
-        implementedActions.forEach(a -> actionsMap.put(a.getName(), new SimpleBooleanProperty(true)));
+        implementedActions.forEach(a -> actionsMap.put(a.getName(), new ObservableProperty<>(true)));
         List<SupremeMenuItem> supremeMenuItems = supremeSceneService.getMenuItems(stageContainer.getStage().getScene());
         supremeMenuItemService.initMenuItems(supremeMenuItems, stageContainer);
         stage.addEventFilter(CustomActionEvent.ANY, event -> {

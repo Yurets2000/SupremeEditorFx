@@ -2,7 +2,7 @@ package com.yube.main;
 
 import com.yube.commands.Command;
 import com.yube.commands.Recallable;
-import javafx.beans.property.BooleanProperty;
+import com.yube.observables.ObservableProperty;
 import javafx.stage.Stage;
 import lombok.Getter;
 
@@ -22,7 +22,7 @@ public final class StageContainer {
     @Getter
     private Deque<Recallable> recallables = new ArrayDeque<>();
     @Getter
-    private Map<String, BooleanProperty> actionsMap = new HashMap<>();
+    private Map<String, ObservableProperty<Boolean>> actionsMap = new HashMap<>();
 
     public StageContainer(Stage stage, String qualifier){
         this.stage = stage;
