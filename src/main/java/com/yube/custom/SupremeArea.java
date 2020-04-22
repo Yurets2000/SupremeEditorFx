@@ -9,8 +9,12 @@ import org.reactfx.Subscription;
 
 import java.time.Duration;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class SupremeArea extends StyleClassedTextArea {
+public class SupremeArea extends StyleClassedTextArea implements SearchingContext<StyledTextAreaToken, StyledTextAreaTokenTypes> {
 
     private Subscription highlightingSubscription;
 
@@ -72,5 +76,20 @@ public class SupremeArea extends StyleClassedTextArea {
 
     @Override
     public void undo() {
+    }
+
+    @Override
+    public Set<StyledTextAreaToken> getTokens(StyledTextAreaTokenTypes tokenType) {
+        Set<StyledTextAreaToken> styledTextAreaTokens = new HashSet<>();
+        String text = getText();
+        Pattern pattern;
+        if(tokenType.equals(StyledTextAreaTokenTypes.WORD)){
+            pattern = Pattern.compile("\\W+");
+            Matcher matcher = pattern.matcher(text);
+            while (matcher.find()){
+                styledTextAreaTokens.add(new StyledTextAreaToken(matcher.start(), matcher.end(), matcher.group()));
+            }
+        }
+        return styledTextAreaTokens;
     }
 }

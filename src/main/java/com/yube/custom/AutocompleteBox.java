@@ -3,13 +3,13 @@ package com.yube.custom;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 
-public class Autocomplete extends VBox {
+public class AutocompleteBox extends VBox {
     @Getter
     private AutocompleteHeader header;
     @Getter
     private AutocompleteBody body;
 
-    public Autocomplete(AutocompleteHeader header, AutocompleteBody body) {
+    public AutocompleteBox(AutocompleteHeader header, AutocompleteBody body) {
         getStyleClass().add("autocomplete");
         this.header = header;
         this.body = body;
