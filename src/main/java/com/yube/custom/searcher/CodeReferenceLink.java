@@ -1,5 +1,6 @@
-package com.yube.custom;
+package com.yube.custom.searcher;
 
+import com.yube.custom.SupremeArea;
 import com.yube.utils.TextHelper;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

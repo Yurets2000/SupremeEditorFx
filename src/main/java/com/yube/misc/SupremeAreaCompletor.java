@@ -1,6 +1,10 @@
 package com.yube.misc;
 
 import com.yube.custom.*;
+import com.yube.custom.searcher.CodeCompletionLink;
+import com.yube.custom.searcher.CodeCompletorTokenType;
+import com.yube.custom.searcher.CodeToken;
+import com.yube.custom.searcher.SearcherHeader;
 
 public class SupremeAreaCompletor extends Searcher<CodeToken, CodeCompletorTokenType, SupremeArea, CodeCompletionLink> {
 

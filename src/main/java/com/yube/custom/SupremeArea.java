@@ -1,6 +1,7 @@
 package com.yube.custom;
 
 import com.yube.configuration.models.styling.LexerStyle;
+import com.yube.custom.searcher.*;
 import com.yube.main.SupremeEditor;
 import com.yube.misc.Highlighter;
 import com.yube.misc.SupremeAreaCompletor;

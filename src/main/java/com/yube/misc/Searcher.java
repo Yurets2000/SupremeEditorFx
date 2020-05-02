@@ -1,6 +1,6 @@
 package com.yube.misc;
 
-import com.yube.custom.*;
+import com.yube.custom.searcher.*;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.input.MouseEvent;

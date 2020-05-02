@@ -1,4 +1,4 @@
-package com.yube.custom;
+package com.yube.custom.searcher;
 
 import javafx.scene.layout.VBox;
 import lombok.Getter;

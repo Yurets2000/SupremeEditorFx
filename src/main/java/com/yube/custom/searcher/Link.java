@@ -1,4 +1,4 @@
-package com.yube.custom;
+package com.yube.custom.searcher;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

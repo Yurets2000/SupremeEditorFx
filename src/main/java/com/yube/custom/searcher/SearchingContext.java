@@ -1,4 +1,4 @@
-package com.yube.custom;
+package com.yube.custom.searcher;
 
 import java.util.Map;
 

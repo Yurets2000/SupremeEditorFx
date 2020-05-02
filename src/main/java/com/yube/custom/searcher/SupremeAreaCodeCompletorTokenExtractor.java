@@ -1,4 +1,6 @@
-package com.yube.custom;
+package com.yube.custom.searcher;
+
+import com.yube.custom.SupremeArea;
 
 import java.util.*;
 import java.util.regex.Matcher;
