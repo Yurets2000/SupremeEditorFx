@@ -1,7 +1,12 @@
 package com.yube.custom;
 
 import com.yube.configuration.models.styling.LexerStyle;
+import com.yube.main.SupremeEditor;
 import com.yube.misc.Highlighter;
+import com.yube.misc.SupremeAreaCompletor;
+import javafx.geometry.Bounds;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.richtext.model.EditableStyledDocument;
@@ -9,18 +14,21 @@ import org.reactfx.Subscription;
 
 import java.time.Duration;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
-public class SupremeArea extends StyleClassedTextArea implements SearchingContext<StyledTextAreaToken, StyledTextAreaTokenTypes> {
+public class SupremeArea extends StyleClassedTextArea implements SearchingContext<SupremeArea> {
 
     private Subscription highlightingSubscription;
+    private final Map<Class<? extends Enum<?>>, TokenExtractor<SupremeArea, ? extends Token, ? extends Enum<?>>> extractors = new HashMap<>();
+    private Subscription autocompleteSubscription;
 
     public SupremeArea() {
         super(false);
         initArea();
+        extractors.put(CodeCompletorTokenType.class, new SupremeAreaCodeCompletorTokenExtractor());
+        extractors.put(CodeSearcherTokenType.class, new SupremeAreaCodeSearcherTokenExtractor());
     }
 
     public SupremeArea(EditableStyledDocument<Collection<String>, String, Collection<String>> document) {
@@ -34,16 +42,45 @@ public class SupremeArea extends StyleClassedTextArea implements SearchingContex
         setUseInitialStyleForInsertion(true);
     }
 
-    public void enableHighlighting(LexerStyle lexerStyle){
-        if(highlightingSubscription != null){
+    public void enableHighlighting(LexerStyle lexerStyle) {
+        if (highlightingSubscription != null) {
             highlightingSubscription.unsubscribe();
         }
         highlightingSubscription = multiPlainChanges().successionEnds(Duration.ofMillis(500))
                 .subscribe(ignore -> setStyleSpans(0, Highlighter.computeHighlighting(getText(), lexerStyle)));
     }
 
-    public void disableHighlighting(){
+    public void enableAutocomplete() {
+        if (autocompleteSubscription != null) {
+            autocompleteSubscription.unsubscribe();
+        }
+        SupremeAreaCompletor supremeAreaCompletor = new SupremeAreaCompletor(this);
+        Popup completionPopup = supremeAreaCompletor.createPopup();
+        multiPlainChanges().successionEnds(Duration.ofMillis(1000))
+                .subscribe(ignore -> {
+                    selectWord();
+                    String lastWord = getSelectedText();
+                    deselect();
+                    Optional<Bounds> optionalBounds = getCaretBounds();
+                    if (lastWord.length() >= 3 && optionalBounds.isPresent()) {
+                        Bounds bounds = optionalBounds.get();
+                        Stage currentWindow = SupremeEditor.StageContainersRegistry.getInstance()
+                                .getCurrentStageContainer().getStage();
+                        completionPopup.show(currentWindow, bounds.getMinX() + 5, bounds.getMinY() + 5);
+                    } else {
+                        completionPopup.hide();
+                    }
+                });
+    }
+
+    public void disableHighlighting() {
         highlightingSubscription.unsubscribe();
+        highlightingSubscription = null;
+    }
+
+    public void disableAutocomplete() {
+        autocompleteSubscription.unsubscribe();
+        autocompleteSubscription = null;
     }
 
     @Override
@@ -79,17 +116,8 @@ public class SupremeArea extends StyleClassedTextArea implements SearchingContex
     }
 
     @Override
-    public Set<StyledTextAreaToken> getTokens(StyledTextAreaTokenTypes tokenType) {
-        Set<StyledTextAreaToken> styledTextAreaTokens = new HashSet<>();
-        String text = getText();
-        Pattern pattern;
-        if(tokenType.equals(StyledTextAreaTokenTypes.WORD)){
-            pattern = Pattern.compile("\\W+");
-            Matcher matcher = pattern.matcher(text);
-            while (matcher.find()){
-                styledTextAreaTokens.add(new StyledTextAreaToken(matcher.start(), matcher.end(), matcher.group()));
-            }
-        }
-        return styledTextAreaTokens;
+    @SuppressWarnings("unchecked")
+    public Map<Class<? extends Enum<?>>, TokenExtractor<SupremeArea, ? extends Token, ? extends Enum<?>>> getExtractors() {
+        return extractors;
     }
 }

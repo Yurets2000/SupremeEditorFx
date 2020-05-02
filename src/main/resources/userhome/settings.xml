@@ -4,7 +4,7 @@
   <Configs>
 	<GUIConfigs>
 	  <GuiConfig name="theme" theme="-1"/>
-	  <GuiConfig name="auto-completion" autoCompletion="false" ignoreNumbers="true"/>
+	  <GuiConfig name="auto-completion" enable="true"/>
 	  <GuiConfig name="highlighting" enable="true"/>
 	  <GuiConfig name="font" color="white" size="14" family="Arial"/>
 	</GUIConfigs>

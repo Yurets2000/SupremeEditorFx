@@ -5,7 +5,9 @@ import com.yube.configuration.processors.actions.ActionsProcessor;
 import com.yube.custom.SupremeMenuItem;
 import com.yube.events.CustomActionEvent;
 import com.yube.main.StageContainer;
+import com.yube.observables.Observable;
 import com.yube.observables.ObservableProperty;
+import com.yube.observables.Observer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +31,18 @@ public final class SupremeMenuItemService {
         bindActionsToMenuItems(items, stageContainer);
     }
 
+    @SuppressWarnings("unchecked")
     private void bindMenuItemsToActions(List<SupremeMenuItem> items, Map<String, ObservableProperty<Boolean>> actionsMap) {
         for (SupremeMenuItem item : items) {
             String action = item.getAction();
             if (action != null) {
-                actionsMap.get(item.getAction()).addObserver((o, arg) -> {
-                    item.setDisable(!((ObservableProperty<Boolean>) o).getProperty());
+                actionsMap.get(item.getAction()).subscribe(new Observer() {
+                    @Override
+                    public void update(Observable o) {
+                        if(o instanceof ObservableProperty) {
+                            item.setDisable(!((ObservableProperty<Boolean>) o).getProperty());
+                        }
+                    }
                 });
                 //item.disableProperty().bind(Bindings.not(actionsMap.get(item.getAction())));
             }

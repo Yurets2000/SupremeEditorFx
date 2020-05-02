@@ -33,7 +33,7 @@ public final class SupremeTabService {
     }
 
     private void createTabContent(SupremeTab tab, StageContainer container){
-        SupremeArea area = supremeAreaService.createArea("Content here", container);
+        SupremeArea area = supremeAreaService.createArea("Content here and there and maybe somewhere else :)", container);
         area.setPrefHeight(2000);
         VirtualizedScrollPane<SupremeArea> scrollPane = new VirtualizedScrollPane<>(area);
         tab.setContent(scrollPane);
