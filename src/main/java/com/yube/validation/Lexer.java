@@ -8,7 +8,7 @@ import java.util.Map;
 @Data
 public abstract class Lexer {
 
-    protected Map<String, LexingRule> lexingRuleMap;
+    protected final Map<String, LexingRule> lexingRuleMap;
 
     public abstract List<Lexem> translate(String text);
 }
