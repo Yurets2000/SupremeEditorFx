@@ -1,11 +1,14 @@
 package com.yube.validation;
 
-import java.util.Map;
-import java.util.regex.Pattern;
+import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
+@Data
 public abstract class Lexer {
 
-    protected Map<String, Pattern> rules;
+    protected Map<String, LexingRule> lexingRuleMap;
 
-    public abstract String translate(String text);
+    public abstract List<Lexem> translate(String text);
 }

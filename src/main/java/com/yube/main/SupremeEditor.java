@@ -12,6 +12,9 @@ import com.yube.events.CustomActionEvent;
 import com.yube.observables.ObservableProperty;
 import com.yube.services.*;
 import com.yube.utils.ImageHelper;
+import com.yube.validation.LexingRule;
+import com.yube.validation.ParsingRule;
+import com.yube.validation.RuleContext;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -71,6 +74,15 @@ public class SupremeEditor extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        /*Rules resolution test*/
+        RuleContext context = new RuleContext("rules/MiniJavaLexingRules", "rules/MiniJavaParsingRules");
+        Map<String, LexingRule> lexingRuleMap = context.getLexingRuleMap();
+        Map<String, ParsingRule> parsingRuleMap = context.getParsingRuleMap();
+        System.out.println("Lexing rule map:");
+        lexingRuleMap.forEach((k, v) -> System.out.printf("key: %1$s, value: %2$s\n", k, v));
+        System.out.println("Parsing rule map:");
+        parsingRuleMap.forEach((k, v) -> System.out.printf("key: %1$s, value: %2$s\n", k, v));
+
         StageContainer stageContainer = new StageContainer(stage, "main");
         StageContainersRegistry.getInstance().registerStageContainer(stageContainer);
 

@@ -6,4 +6,5 @@ import lombok.Data;
 public class Lexem {
     private final String name;
     private final String value;
+    protected final int beginColumn, endColumn, beginRow, endRow;
 }
