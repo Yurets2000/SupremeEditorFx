@@ -1,7 +1,12 @@
 package com.yube.validation.minijava.tokens.expressions;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.List;
 
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class MethodReferenceExpression extends Expression {
 
     private String name;

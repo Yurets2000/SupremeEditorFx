@@ -1,5 +1,10 @@
 package com.yube.validation.minijava.tokens.expressions;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class ArithmeticCompareExpression extends ArithmeticBinaryExpression {
 
     private ArithmeticCompareType compareType;

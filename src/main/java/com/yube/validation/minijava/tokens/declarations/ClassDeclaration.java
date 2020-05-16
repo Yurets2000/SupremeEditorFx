@@ -1,6 +1,6 @@
 package com.yube.validation.minijava.tokens.declarations;
 
-import com.yube.validation.minijava.tokens.Token;
+import com.yube.validation.Token;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

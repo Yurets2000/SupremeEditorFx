@@ -1,4 +1,4 @@
-package com.yube.validation.minijava.tokens;
+package com.yube.validation;
 
 import lombok.Data;
 

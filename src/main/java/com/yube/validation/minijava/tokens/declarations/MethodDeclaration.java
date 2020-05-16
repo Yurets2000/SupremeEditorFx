@@ -1,6 +1,6 @@
 package com.yube.validation.minijava.tokens.declarations;
 
-import com.yube.validation.minijava.tokens.Token;
+import com.yube.validation.Token;
 import com.yube.validation.minijava.tokens.expressions.Expression;
 import com.yube.validation.minijava.tokens.misc.Parameter;
 import com.yube.validation.minijava.tokens.statements.Statement;
