@@ -11,7 +11,7 @@ public abstract class Expression extends Token {
 
     protected Type resultType;
 
-    public Expression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public Expression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

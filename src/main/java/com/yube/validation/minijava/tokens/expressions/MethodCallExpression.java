@@ -15,7 +15,7 @@ public class MethodCallExpression extends Expression {
 
     private List<Expression> args;
 
-    public MethodCallExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public MethodCallExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

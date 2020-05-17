@@ -11,7 +11,7 @@ public class BlockStatement extends Statement {
 
     private List<Statement> statements;
 
-    public BlockStatement(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public BlockStatement(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

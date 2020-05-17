@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class NullLiteralExpression extends LiteralExpression {
 
-    public NullLiteralExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public NullLiteralExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

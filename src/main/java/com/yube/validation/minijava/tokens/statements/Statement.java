@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public abstract class Statement extends Token {
 
-    public Statement(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public Statement(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

@@ -9,7 +9,7 @@ public class ArrayType extends Type {
 
     private Type baseType;
 
-    public ArrayType(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ArrayType(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

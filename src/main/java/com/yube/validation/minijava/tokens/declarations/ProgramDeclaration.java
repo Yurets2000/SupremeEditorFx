@@ -12,7 +12,7 @@ public class ProgramDeclaration extends Token {
 
     private List<ClassDeclaration> classDeclarations;
 
-    public ProgramDeclaration(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ProgramDeclaration(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

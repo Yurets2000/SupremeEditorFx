@@ -9,7 +9,7 @@ public class ClassType extends Type {
 
     private String name;
 
-    public ClassType(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ClassType(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

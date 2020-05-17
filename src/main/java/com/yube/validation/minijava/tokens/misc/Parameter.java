@@ -13,7 +13,7 @@ public abstract class Parameter extends Token {
 
     private String name;
 
-    public Parameter(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public Parameter(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

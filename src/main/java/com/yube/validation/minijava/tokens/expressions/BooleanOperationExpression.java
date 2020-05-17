@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class BooleanOperationExpression extends BooleanBinaryExpression {
 
-    public BooleanOperationExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public BooleanOperationExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class ThisExpression extends Expression {
 
-    public ThisExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ThisExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

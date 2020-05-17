@@ -16,7 +16,7 @@ public class ClassDeclaration extends Token {
 
     private List<MethodDeclaration> methodDeclarations;
 
-    public ClassDeclaration(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ClassDeclaration(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

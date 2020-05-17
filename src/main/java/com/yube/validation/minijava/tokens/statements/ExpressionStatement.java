@@ -10,7 +10,7 @@ public class ExpressionStatement extends Statement {
 
     private Expression expression;
 
-    public ExpressionStatement(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ExpressionStatement(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

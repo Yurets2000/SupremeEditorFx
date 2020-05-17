@@ -8,7 +8,7 @@ import java.util.Map;
 @Data
 public abstract class Parser {
 
-    protected final Map<String, LexingRule> parsingRuleMap;
+    protected final Map<String, ParsingRule> parsingRuleMap;
 
     public abstract List<Token> translate(List<Lexem> lexems);
 }

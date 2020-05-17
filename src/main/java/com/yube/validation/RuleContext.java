@@ -87,7 +87,7 @@ public class RuleContext {
         ParsingRule rule = new ParsingRule(value);
         String innerValue;
         StringBuilder builder = new StringBuilder(value);
-        if (value.matches(GROUP_PATTERN.pattern()) && checkBracketsCountMatch(value)) {
+        if (value.matches(GROUP_PATTERN.pattern()) && checkBracket(value)) {
             builder.deleteCharAt(0);
             if (value.matches(SIMPLE_GROUP_PATTERN.pattern())) {
                 builder.deleteCharAt(builder.length() - 1);
@@ -114,7 +114,12 @@ public class RuleContext {
             String part = parts.get(0);
             List<String> subParts = breakOnPartsUsingDelimiter(part, ' ');
             if (subParts.size() == 1) {
-                rule.setTerminal(true);
+                if(rule.getCount() != ParsingRule.ComponentsCount.ONE) {
+                    List<ParsingRule> ruleComponents = subParts.stream().map(this::formParsingRule).collect(Collectors.toList());
+                    rule.setRuleComponents(ruleComponents);
+                } else {
+                    rule.setTerminal(true);
+                }
                 return rule;
             } else {
                 List<ParsingRule> ruleComponents = subParts.stream().map(this::formParsingRule).collect(Collectors.toList());
@@ -176,11 +181,21 @@ public class RuleContext {
         return i;
     }
 
-    private boolean checkBracketsCountMatch(String text) {
+    private boolean checkBracket(String text) {
+        if(text.length() == 2) return text.contains("(") && text.contains(")");
+        if(!checkBracketsCount(text)) return false;
+        if(!(text.contains("(") || text.contains(")"))) return true;
+        int begin = text.indexOf("(") + 1;
+        int end = text.lastIndexOf(")");
+        return checkBracket(text.substring(begin, end));
+    }
+
+    private boolean checkBracketsCount(String text) {
+        if(text.length() < 2) return false;
         if(!text.contains("(")) {
             return !text.contains(")");
         } else {
-            int i = text.indexOf("(");
+            int i = text.indexOf("(") + 1;
             int openBracketsCount = 1;
             while (openBracketsCount != 0) {
                 if (i == text.length()) return false;

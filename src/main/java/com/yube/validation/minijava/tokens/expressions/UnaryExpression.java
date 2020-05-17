@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public abstract class UnaryExpression extends Expression {
 
-    public UnaryExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public UnaryExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }

@@ -9,8 +9,8 @@ public class PrimitiveType extends Type {
 
     private PrimitiveTypeInstance instance;
 
-    public PrimitiveType(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public PrimitiveType(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 
     public enum PrimitiveTypeInstance {

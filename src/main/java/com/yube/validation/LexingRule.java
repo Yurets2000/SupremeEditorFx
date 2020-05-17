@@ -14,4 +14,11 @@ public class LexingRule extends Rule {
     public LexingRule(String value) {
         super(value);
     }
+
+    @Override
+    public String toString() {
+        return "LexingRule{" +
+                "pattern=" + pattern.pattern() +
+                "} " + super.toString();
+    }
 }

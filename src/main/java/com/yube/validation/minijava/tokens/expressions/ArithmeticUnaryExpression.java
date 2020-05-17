@@ -9,8 +9,8 @@ public class ArithmeticUnaryExpression extends UnaryExpression {
 
     private ArithmeticUnaryType unaryType;
 
-    public ArithmeticUnaryExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ArithmeticUnaryExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 
     public enum ArithmeticUnaryType {

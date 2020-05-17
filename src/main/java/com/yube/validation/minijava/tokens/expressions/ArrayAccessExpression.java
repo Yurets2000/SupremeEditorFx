@@ -11,7 +11,7 @@ public class ArrayAccessExpression extends Expression {
 
     private Expression numberExpression;
 
-    public ArrayAccessExpression(String value, int beginColumn, int endColumn, int beginRow, int endRow) {
-        super(value, beginColumn, endColumn, beginRow, endRow);
+    public ArrayAccessExpression(String value, int beginIndex, int endIndex) {
+        super(value, beginIndex, endIndex);
     }
 }
