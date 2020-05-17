@@ -9,10 +9,12 @@ import java.util.regex.Pattern;
 @EqualsAndHashCode(callSuper = false)
 public class LexingRule extends Rule {
 
+    private final String name;
     private Pattern pattern;
 
-    public LexingRule(String value) {
+    public LexingRule(String name, String value) {
         super(value);
+        this.name = name;
     }
 
     @Override

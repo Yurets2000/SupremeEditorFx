@@ -5,12 +5,12 @@ import com.yube.validation.Parser;
 import com.yube.validation.ParsingRule;
 import com.yube.validation.Token;
 
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MiniJavaParser extends Parser {
 
-    public MiniJavaParser(Map<String, ParsingRule> parsingRuleMap) {
+    public MiniJavaParser(LinkedHashMap<String, ParsingRule> parsingRuleMap) {
         super(parsingRuleMap);
     }
 

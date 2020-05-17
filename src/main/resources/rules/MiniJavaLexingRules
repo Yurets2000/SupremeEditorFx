@@ -47,6 +47,6 @@ PERCENTEQ    : '%=';
 GT           : '>';
 LT           : '<';
 
-BOOLEAN_LITERAL     : '(true|false)';
-INTEGER_LITERAL     : '\\d+';
-IDENTIFIER          : '\\b_*[a-zA-Z][_a-zA-Z0-9]*\\b';
+BOOLEAN_LITERAL     : (true|false);
+INTEGER_LITERAL     : \d+;
+IDENTIFIER          : \b_*[a-zA-Z][_a-zA-Z0-9]*\b;

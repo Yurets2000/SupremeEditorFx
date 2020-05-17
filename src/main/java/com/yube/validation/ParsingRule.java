@@ -20,13 +20,4 @@ public class ParsingRule extends Rule {
     public enum ComponentsCount {
         ZERO_OR_ONE, ZERO_OR_MORE, ONE, ONE_OR_MORE
     }
-
-    @Override
-    public String toString() {
-        return "ParsingRule{" +
-                "ruleComponents=" + ruleComponents +
-                ", count=" + count +
-                ", terminal=" + terminal +
-                "} " + super.toString();
-    }
 }

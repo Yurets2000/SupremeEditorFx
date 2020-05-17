@@ -9,14 +9,17 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class RuleContext {
 
-    private final static Pattern LEXING_RULE_PATTERN = Pattern.compile("[A-Z_]+\\s+:\\s+'.+';");
+    private final static Pattern LEXING_RULE_PATTERN = Pattern.compile("[A-Z_]+\\s+:\\s+.+;");
     private final static Pattern PARSING_RULE_PATTERN = Pattern.compile("[A-Z_]+\\s+:[^;]+;");
     private final static Pattern GROUP_PATTERN = Pattern.compile("^\\([^;]+\\)[?*+]?$");
     private final static Pattern SIMPLE_GROUP_PATTERN = Pattern.compile("^\\([^;]+\\)$");
@@ -24,9 +27,9 @@ public class RuleContext {
     private final static Pattern ZERO_OR_MORE_PATTERN = Pattern.compile("^\\([^;]+\\)\\*$");
     private final static Pattern ONE_OR_MORE_PATTERN = Pattern.compile("^\\([^;]+\\)\\+$");
     @Getter
-    private Map<String, LexingRule> lexingRuleMap;
+    private LinkedHashMap<String, LexingRule> lexingRuleMap;
     @Getter
-    private Map<String, ParsingRule> parsingRuleMap;
+    private LinkedHashMap<String, ParsingRule> parsingRuleMap;
 
     public RuleContext(String lexingRulesPath, String parsingRulesPath) {
         String lexingRules = extractRules(lexingRulesPath);
@@ -51,17 +54,19 @@ public class RuleContext {
     private void initLexingRules(String lexingRules) {
         List<String> rules = getGroups(LEXING_RULE_PATTERN, lexingRules);
         if (rules.isEmpty()) throw new RuleResolutionException("No lexing rules was resolved");
-        lexingRuleMap = new HashMap<>();
+        lexingRuleMap = new LinkedHashMap<>();
         rules.stream()
                 .map(t -> t.split(":"))
-                .peek(arr -> {
+                .forEach(arr -> {
                     arr[0] = arr[0].trim();
-                    System.out.println(arr[1].trim());
-                    arr[1] = arr[1].trim().replace("'", "");
+                    arr[1] = arr[1].trim();
                     arr[1] = arr[1].substring(0, arr[1].length() - 1);
-                }).forEach(arr -> {
-            LexingRule rule = new LexingRule(arr[1]);
-            if (contains(arr[1], Arrays.asList("*", "+", "?", ".", "(", ")", "{", "}", "[", "]", "^", ":", "|"))) {
+            LexingRule rule = new LexingRule(arr[0], arr[1]);
+            if (arr[1].startsWith("'") && arr[1].endsWith("'")) {
+                StringBuilder builder = new StringBuilder(arr[1]);
+                builder.deleteCharAt(0);
+                builder.deleteCharAt(builder.length() - 1);
+                arr[1] = builder.toString();
                 rule.setPattern(Pattern.compile(Pattern.quote(arr[1])));
             } else {
                 rule.setPattern(Pattern.compile(arr[1]));
@@ -73,7 +78,7 @@ public class RuleContext {
     private void initParsingRules(String parsingRules) {
         List<String> rules = getGroups(PARSING_RULE_PATTERN, parsingRules);
         if (rules.isEmpty()) throw new RuleResolutionException("No parsing rules was resolved");
-        parsingRuleMap = new HashMap<>();
+        parsingRuleMap = new LinkedHashMap<>();
         rules.stream()
                 .map(t -> t.split(":"))
                 .peek(arr -> {
