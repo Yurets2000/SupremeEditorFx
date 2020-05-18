@@ -1,5 +1,6 @@
 package com.yube.custom.searcher;
 
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -14,12 +15,12 @@ public class SearcherBody extends StackPane {
         getChildren().add(box);
     }
 
-    public SearcherBody(List<SearcherItem> items) {
+    public SearcherBody(List<BorderPane> items) {
         this();
-        box.getChildren().addAll(items);
+        updateItems(items);
     }
 
-    public void updateItems(List<SearcherItem> items) {
+    public void updateItems(List<BorderPane> items) {
         box.getChildren().clear();
         box.getChildren().addAll(items);
     }

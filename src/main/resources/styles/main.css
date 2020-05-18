@@ -22,9 +22,9 @@
 }
 
 .searcher-header, .searcher-header .text-field, .searcher-item, .searcher-body {
-    -fx-min-width: 350;
-    -fx-pref-width: 350;
-    -fx-max-width: 350;
+    -fx-min-width: 400;
+    -fx-pref-width: 400;
+    -fx-max-width: 400;
 }
 
 .searcher-item {

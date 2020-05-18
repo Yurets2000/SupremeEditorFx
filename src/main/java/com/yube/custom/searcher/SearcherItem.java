@@ -1,16 +1,21 @@
 package com.yube.custom.searcher;
 
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextFlow;
 
-public class SearcherItem extends Pane {
+public class SearcherItem {
 
-    public SearcherItem() {
-        getStyleClass().add("searcher-item");
+    private final TextFlow textFlow;
+    private final SearcherItemBase base;
+
+    public SearcherItem(TextFlow textFlow, SearcherItemBase base) {
+        this.textFlow = textFlow;
+        this.base = base;
     }
 
-    public SearcherItem(TextFlow textFlow) {
-        this();
-        getChildren().add(textFlow);
+    public BorderPane constructPane() {
+        BorderPane borderPane = base.constructPane();
+        borderPane.setRight(textFlow);
+        return borderPane;
     }
 }

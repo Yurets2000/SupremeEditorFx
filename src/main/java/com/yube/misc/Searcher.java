@@ -4,6 +4,8 @@ import com.yube.custom.searcher.*;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Popup;
 
 import java.util.Collections;
@@ -58,15 +60,18 @@ public abstract class Searcher<T extends Token, E extends Enum<E>, SC extends Se
     }
 
     private void refreshItems(List<L> links) {
-        List<SearcherItem> searcherItems = links.stream()
-                .map(this::createSearcherItemFromLink).collect(Collectors.toList());
-        box.getBody().updateItems(searcherItems);
+        List<BorderPane> panes = links.stream()
+                .map(this::createPaneFromLink).collect(Collectors.toList());
+        box.getBody().updateItems(panes);
         refreshProperty.setValue(false);
     }
 
-    private SearcherItem createSearcherItemFromLink(L link) {
-        SearcherItem item = new SearcherItem(link.getUserRepresentation());
-        item.addEventFilter(MouseEvent.MOUSE_CLICKED, link.getMouseHandler());
-        return item;
+    private BorderPane createPaneFromLink(L link) {
+        SearcherItemBase base = SearcherItemBaseFactory.getSearcherItemBase(getTokenType());
+        TextFlow textFlow = link.getUserRepresentation();
+        SearcherItem item = new SearcherItem(textFlow, base);
+        BorderPane pane = item.constructPane();
+        pane.addEventFilter(MouseEvent.MOUSE_CLICKED, link.getMouseHandler());
+        return pane;
     }
 }

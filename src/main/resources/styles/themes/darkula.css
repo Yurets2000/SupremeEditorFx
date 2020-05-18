@@ -36,9 +36,9 @@ root, #mainTabPane, .supreme-area {
     -fx-background-color: #696969;
 }
 
-.searcher-item {
-    -fx-background-color: #696969;
-}
+/*.searcher-item {*/
+    /*-fx-background-color: #696969;*/
+/*}*/
 
 .searcher-item:hover {
     -fx-background-color: #1e1e1e;
