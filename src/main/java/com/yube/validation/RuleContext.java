@@ -9,10 +9,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -96,42 +93,41 @@ public class RuleContext {
             builder.deleteCharAt(0);
             if (value.matches(SIMPLE_GROUP_PATTERN.pattern())) {
                 builder.deleteCharAt(builder.length() - 1);
-                rule.setCount(ParsingRule.ComponentsCount.ONE);
+                rule.setType(ParsingRule.RuleType.GROUP_ONE);
             } else {
                 builder.deleteCharAt(builder.length() - 1);
                 builder.deleteCharAt(builder.length() - 1);
                 if (value.matches(ZERO_OR_ONE_PATTERN.pattern())) {
-                    rule.setCount(ParsingRule.ComponentsCount.ZERO_OR_ONE);
+                    rule.setType(ParsingRule.RuleType.GROUP_ZERO_OR_ONE);
                 } else if (value.matches(ZERO_OR_MORE_PATTERN.pattern())) {
-                    rule.setCount(ParsingRule.ComponentsCount.ZERO_OR_MORE);
+                    rule.setType(ParsingRule.RuleType.GROUP_ZERO_OR_MORE);
                 } else if (value.matches(ONE_OR_MORE_PATTERN.pattern())) {
-                    rule.setCount(ParsingRule.ComponentsCount.ONE_OR_MORE);
+                    rule.setType(ParsingRule.RuleType.GROUP_ONE_OR_MORE);
                 } else {
                     throw new RuleResolutionException("Unknown group type found");
                 }
             }
         } else {
-            rule.setCount(ParsingRule.ComponentsCount.ONE);
+            rule.setType(ParsingRule.RuleType.ONE);
         }
         innerValue = builder.toString().trim();
-        List<String> parts = breakOnPartsUsingDelimiter(innerValue, '|');
-        if (parts.size() == 1) {
-            String part = parts.get(0);
-            List<String> subParts = breakOnPartsUsingDelimiter(part, ' ');
-            if (subParts.size() == 1) {
-                if(rule.getCount() != ParsingRule.ComponentsCount.ONE) {
+        if(rule.getType() == ParsingRule.RuleType.ONE) {
+            List<String> parts = breakOnPartsUsingDelimiter(innerValue, '|');
+            if (parts.size() == 1) {
+                String part = parts.get(0);
+                List<String> subParts = breakOnPartsUsingDelimiter(part, ' ');
+                if (subParts.size() > 1) {
                     List<ParsingRule> ruleComponents = subParts.stream().map(this::formParsingRule).collect(Collectors.toList());
                     rule.setRuleComponents(ruleComponents);
-                } else {
-                    rule.setTerminal(true);
+                    rule.setType(ParsingRule.RuleType.AND);
                 }
-                return rule;
             } else {
-                List<ParsingRule> ruleComponents = subParts.stream().map(this::formParsingRule).collect(Collectors.toList());
+                List<ParsingRule> ruleComponents = parts.stream().map(this::formParsingRule).collect(Collectors.toList());
                 rule.setRuleComponents(ruleComponents);
+                rule.setType(ParsingRule.RuleType.OR);
             }
         } else {
-            List<ParsingRule> ruleComponents = parts.stream().map(this::formParsingRule).collect(Collectors.toList());
+            List<ParsingRule> ruleComponents = Collections.singletonList(formParsingRule(innerValue));
             rule.setRuleComponents(ruleComponents);
         }
         return rule;
@@ -175,7 +171,7 @@ public class RuleContext {
         int openBracketsCount = 1;
         int i = startBracketPosition + 1;
         while (openBracketsCount != 0) {
-            if (i == text.length()) throw new RuleResolutionException("Open/Close brackets count mismatch");
+            if (i == text.length()) throw new RuleResolutionException("Open/Close brackets type mismatch");
             if (text.charAt(i) == '(') {
                 openBracketsCount++;
             } else if (text.charAt(i) == ')') {
@@ -213,14 +209,5 @@ public class RuleContext {
             }
         }
         return true;
-    }
-
-    private boolean contains(String text, List<String> subs) {
-        for (String sub : subs) {
-            if (text.contains(sub)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

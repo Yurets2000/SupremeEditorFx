@@ -3,6 +3,7 @@ package com.yube.validation.minijava;
 import com.yube.validation.Lexem;
 import com.yube.validation.Lexer;
 import com.yube.validation.LexingRule;
+import com.yube.validation.RuleContext;
 import com.yube.validation.exceptions.LexemResolutionException;
 
 import java.util.ArrayList;
@@ -16,10 +17,10 @@ public class MiniJavaLexer extends Lexer {
 
     private LinkedHashMap<Pattern, LexingRule> reversedLexingRules;
 
-    public MiniJavaLexer(LinkedHashMap<String, LexingRule> lexingRuleMap) {
-        super(lexingRuleMap);
+    public MiniJavaLexer(RuleContext ruleContext) {
+        super(ruleContext);
         reversedLexingRules = new LinkedHashMap<>();
-        lexingRuleMap.entrySet().stream()
+        ruleContext.getLexingRuleMap().entrySet().stream()
                 .map(e -> new LinkedHashMap.SimpleEntry<>(e.getValue().getPattern(), e.getValue()))
                 .forEach(e -> reversedLexingRules.put(e.getValue().getPattern(), e.getValue()));
     }

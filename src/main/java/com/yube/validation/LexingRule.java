@@ -2,10 +2,12 @@ package com.yube.validation;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.regex.Pattern;
 
 @Data
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false)
 public class LexingRule extends Rule {
 
@@ -15,12 +17,5 @@ public class LexingRule extends Rule {
     public LexingRule(String name, String value) {
         super(value);
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "LexingRule{" +
-                "pattern=" + pattern.pattern() +
-                "} " + super.toString();
     }
 }
