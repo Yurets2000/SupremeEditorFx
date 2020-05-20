@@ -5,7 +5,7 @@ import com.yube.configuration.models.actions.Definer;
 import org.dom4j.Element;
 import org.dom4j.dom.DOMElement;
 
-public class DefinerTransformer {
+public final class DefinerTransformer {
 
     private DefinerTransformer() {
     }

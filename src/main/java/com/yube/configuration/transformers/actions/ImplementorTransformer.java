@@ -8,7 +8,7 @@ import org.dom4j.dom.DOMElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImplementorTransformer {
+public final class ImplementorTransformer {
 
     private ImplementorTransformer() {
     }

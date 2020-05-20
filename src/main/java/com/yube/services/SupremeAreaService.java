@@ -6,10 +6,13 @@ import com.yube.configuration.processors.styling.LexerStyleProcessor;
 import com.yube.custom.SupremeArea;
 import com.yube.main.StageContainer;
 import com.yube.misc.SupremeAreaSearcher;
-import javafx.scene.input.MouseButton;
+import javafx.geometry.Bounds;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Popup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public final class SupremeAreaService {
@@ -41,9 +44,13 @@ public final class SupremeAreaService {
         styleClassedTextAreaService.addKeyEventFilter(area, container);
         SupremeAreaSearcher supremeAreaSearcher = new SupremeAreaSearcher(area);
         Popup searcherPopup = supremeAreaSearcher.createPopup();
-        area.setOnMouseClicked(event -> {
-            if(event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                searcherPopup.show(container.getStage(), event.getX(), event.getY());
+        area.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.S && event.isControlDown()) {
+                Optional<Bounds> optionalBounds = area.getCaretBounds();
+                if(optionalBounds.isPresent()) {
+                    Bounds bounds = optionalBounds.get();
+                    searcherPopup.show(container.getStage(), bounds.getMaxX() + 10, bounds.getMaxY() + 10);
+                }
             }
         });
         styleClassedTextAreaService.addCustomActionEventFilter(area, container);

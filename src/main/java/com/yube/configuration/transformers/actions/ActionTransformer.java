@@ -10,7 +10,7 @@ import org.dom4j.dom.DOMElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActionTransformer {
+public final class ActionTransformer {
 
     private ActionTransformer() {
     }

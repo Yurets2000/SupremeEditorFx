@@ -24,21 +24,13 @@ root, #mainTabPane, .supreme-area {
     -fx-background-color: white;
 }
 
-.tab, .context-menu {
+.tab, .context-menu, .searcher-box, .notifier-box-button {
     -fx-background-color: #696969;
 }
 
 .text {
     -fx-fill: white;
 }
-
-.searcher-box {
-    -fx-background-color: #696969;
-}
-
-/*.searcher-item {*/
-    /*-fx-background-color: #696969;*/
-/*}*/
 
 .searcher-item:hover {
     -fx-background-color: #1e1e1e;

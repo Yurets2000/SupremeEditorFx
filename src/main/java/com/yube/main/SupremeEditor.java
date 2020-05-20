@@ -55,6 +55,8 @@ public class SupremeEditor extends Application {
     private EventService eventService;
     @Autowired
     private FileService fileService;
+    @Autowired
+    private NotifierService notifierService;
 
     private ConfigurableApplicationContext springContext;
     private Parent root;
@@ -102,6 +104,11 @@ public class SupremeEditor extends Application {
         List<SupremeTab> supremeTabs = sessionFiles.stream()
                 .map(sf -> supremeTabService.createTab(sf, stageContainer)).collect(Collectors.toList());
         tabPane.getTabs().addAll(supremeTabs);
+
+        Stage notifierStage = notifierService.createNotifierStage();
+        notifierStage.setX(stage.getWidth() / 2);
+        notifierStage.setY(stage.getHeight() / 2);
+        notifierStage.show();
 
         stage.show();
     }
