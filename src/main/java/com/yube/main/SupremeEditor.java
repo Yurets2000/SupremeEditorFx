@@ -105,10 +105,14 @@ public class SupremeEditor extends Application {
                 .map(sf -> supremeTabService.createTab(sf, stageContainer)).collect(Collectors.toList());
         tabPane.getTabs().addAll(supremeTabs);
 
-        Stage notifierStage = notifierService.createNotifierStage();
-        notifierStage.setX(stage.getWidth() / 2);
-        notifierStage.setY(stage.getHeight() / 2);
-        notifierStage.show();
+        try {
+            Stage notifierStage = notifierService.createNotifierStage();
+            notifierStage.setX(stage.getWidth() / 2);
+            notifierStage.setY(stage.getHeight() / 2);
+            notifierStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         stage.show();
     }
