@@ -61,12 +61,12 @@ public abstract class Searcher<T extends Token, E extends Enum<E>, SC extends Se
 
     private void refreshItems(List<L> links) {
         List<BorderPane> panes = links.stream()
-                .map(this::createPaneFromLink).collect(Collectors.toList());
+                .map(this::createItem).collect(Collectors.toList());
         box.getBody().updateItems(panes);
         refreshProperty.setValue(false);
     }
 
-    private BorderPane createPaneFromLink(L link) {
+    private BorderPane createItem(L link) {
         SearcherItemBase base = SearcherItemBaseFactory.getSearcherItemBase(getTokenType());
         TextFlow textFlow = link.getUserRepresentation();
         SearcherItem item = new SearcherItem(textFlow, base);

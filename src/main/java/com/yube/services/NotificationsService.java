@@ -12,8 +12,11 @@ import java.util.List;
 public class NotificationsService {
 
     private final static String REQUEST_PREFIX = "http://localhost:8080/SupremeEditorServer_war_exploded/rest";
-    private final static String GET_ALL_NOTIFICATIONS = REQUEST_PREFIX + "/notifications/all";
-    private final static String GET_LAST_NOTIFICATIONS = REQUEST_PREFIX + "/notifications/last";
+    private final static String CONTROLLER_PREFIX = REQUEST_PREFIX + "/notifications";
+    private final static String GET_ALL_NOTIFICATIONS = CONTROLLER_PREFIX + "/all";
+    private final static String GET_LAST_NOTIFICATIONS = CONTROLLER_PREFIX + "/last";
+    private final static String GET_NOTIFICATIONS_COUNT = CONTROLLER_PREFIX + "/count";
+    private final static String GET_NOTIFICATION_BY_POSITION = CONTROLLER_PREFIX;
     private RestClient restClient;
     private JsonAdapter jsonAdapter;
 
@@ -31,5 +34,15 @@ public class NotificationsService {
     public List<Notification> getLastNotifications(int n) {
         String response = restClient.getRequest(GET_LAST_NOTIFICATIONS + "/" + n, null);
         return jsonAdapter.getList(response, Notification.class);
+    }
+
+    public int getNotificationsCount() {
+        String response = restClient.getRequest(GET_NOTIFICATIONS_COUNT, null);
+        return jsonAdapter.getObject(response, Integer.class);
+    }
+
+    public Notification getNotificationByPosition(int n) {
+        String response = restClient.getRequest(GET_NOTIFICATION_BY_POSITION + "/" + n, null);
+        return jsonAdapter.getObject(response, Notification.class);
     }
 }

@@ -1,30 +1,32 @@
 package com.yube.custom.notifier;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 
 public class NotifierBox extends VBox {
+
     @Getter
-    private TabPane body;
+    private final TabPane body;
     @Getter
-    private Button button;
+    private final Button moreButton;
     @Getter
-    private IntegerProperty notificationsCount = new SimpleIntegerProperty(5);
+    private final Button lessButton;
 
     public NotifierBox() {
         getStyleClass().add("notifier-box");
         body = new TabPane();
         body.prefWidthProperty().bind(widthProperty());
         body.getStyleClass().add("notifier-box-body");
-        button = new Button("Get More!");
-        button.prefWidthProperty().bind(widthProperty());
-        button.getStyleClass().add("notifier-box-button");
-        button.setOnAction(e -> notificationsCount.set(notificationsCount.get() + 5));
+        moreButton = new Button("Get More!");
+        moreButton.prefWidthProperty().bind(widthProperty());
+        moreButton.getStyleClass().add("notifier-box-button");
+        lessButton = new Button("Get Less!");
+        lessButton.prefWidthProperty().bind(widthProperty());
+        lessButton.getStyleClass().add("notifier-box-button");
         getChildren().add(body);
-        getChildren().add(button);
+        getChildren().add(moreButton);
+        getChildren().add(lessButton);
     }
 }

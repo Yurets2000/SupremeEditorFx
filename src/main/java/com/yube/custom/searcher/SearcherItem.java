@@ -3,7 +3,7 @@ package com.yube.custom.searcher;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextFlow;
 
-public class SearcherItem {
+public final class SearcherItem {
 
     private final TextFlow textFlow;
     private final SearcherItemBase base;

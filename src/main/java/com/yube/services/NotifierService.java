@@ -3,23 +3,24 @@ package com.yube.services;
 import com.yube.custom.notifier.NotifierBox;
 import com.yube.notifications.dto.Notification;
 import com.yube.utils.HTMLEditorHelper;
+import com.yube.utils.ImageHelper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class NotifierService {
 
-    protected NotificationsService notificationsService;
+    private NotificationsService notificationsService;
+    private int counter = 0;
 
     @Autowired
     public NotifierService(NotificationsService notificationsService) {
@@ -33,6 +34,8 @@ public class NotifierService {
             Parent root = loader.load();
             stage = new Stage();
             stage.setTitle("SupremeEditorFx Notifier");
+            Image image = new Image("https://cdn2.iconfinder.com/data/icons/designer-skills/128/sublime-text-3-512.png");
+            stage.getIcons().add(ImageHelper.cropCentralPart(image, 0.75, 0.75));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/main.css").toExternalForm());
             scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/themes/darkula.css").toExternalForm());
@@ -47,18 +50,20 @@ public class NotifierService {
     }
 
     private void initNotifierBox(NotifierBox box) {
-        box.getBody().getTabs().clear();
-        box.getBody().getTabs().addAll(createNotifierTabs(box.getNotificationsCount().get()));
-        box.getNotificationsCount().addListener(((observable, oldValue, newValue) -> {
-            List<Tab> tabs = createNotifierTabs(newValue.intValue());
-            box.getBody().getTabs().clear();
-            box.getBody().getTabs().addAll(tabs);
-        }));
-    }
-
-    private List<Tab> createNotifierTabs(int n) {
-        List<Notification> notifications = notificationsService.getLastNotifications(n);
-        return notifications.stream().map(this::createNotifierTab).collect(Collectors.toList());
+        Notification initNotification = notificationsService.getNotificationByPosition(counter);
+        box.getBody().getTabs().add(createNotifierTab(initNotification));
+        box.getLessButton().setOnAction(e -> {
+            if(counter > 0) {
+                box.getBody().getTabs().remove(counter--);
+            }
+        });
+        box.getMoreButton().setOnAction(e -> {
+            int max = notificationsService.getNotificationsCount();
+            if(counter < max - 1) {
+                Notification notification = notificationsService.getNotificationByPosition(++counter);
+                box.getBody().getTabs().add(createNotifierTab(notification));
+            }
+        });
     }
 
     private Tab createNotifierTab(Notification notification) {
@@ -66,6 +71,7 @@ public class NotifierService {
         HTMLEditorHelper.hideHTMLEditorToolbars(editor);
         editor.setHtmlText(notification.getHtmlContent());
         Tab notifierTab = new Tab(notification.getDescription());
+        notifierTab.setClosable(false);
         notifierTab.setContent(editor);
         return notifierTab;
     }

@@ -32,7 +32,7 @@ root, #mainTabPane, .supreme-area {
     -fx-fill: white;
 }
 
-.searcher-item:hover {
+.searcher-item:hover, .notifier-box-button:hover {
     -fx-background-color: #1e1e1e;
 }
 
